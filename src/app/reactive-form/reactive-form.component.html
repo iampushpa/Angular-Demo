@@ -1,0 +1,68 @@
+<div class="container">
+<h4>Reactive-Form</h4>
+<form [formGroup]="myForm" (ngSubmit)="onsubmitData()">
+    <div class="form-group">
+        <label for="username" class="form-label">User Name :</label>
+        <input type="text" name="uname" class="form-control" formControlName="uname"
+        [ngClass]="{'is-invalid' : submitted && myForm.controls.uname.errors}" required>
+
+        <div *ngIf="myForm.controls.uname.touched" class="invalid-feedback">
+            <div *ngIf="myForm.controls.uname.errors?.required">This field is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="form-label">Email :</label>
+        <input type="email" name="eml" class="form-control" formControlName="eml"
+        [ngClass]="{'is-invalid': submitted && myForm.controls.eml.errors}" required
+        pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
+
+        <div *ngIf="myForm.controls.eml.touched" class="invalid-feedback">
+            <div *ngIf="myForm.controls.eml.errors?.required">This field is required</div>
+            <div *ngIf="myForm.controls.eml.errors?.pattern">Please enter valid email address</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="address" class="form-label">Address :</label>
+        <input type="text" name="add" class="form-control" formControlName="add"
+        [ngClass]="{'is-invalid':submitted && myForm.controls.add.errors}" required>
+
+        <div *ngIf="myForm.controls.add.touched" class="invalid-feedback">
+            <div *ngIf="myForm.controls.add.errors?.required">This field is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="form-label">Password :</label>
+        <input type="text" name="pass" class="form-control" formControlName="pass"
+        [ngClass]="{'is-invalid' : submitted && myForm.controls.pass.errors}" required>
+
+        <div *ngIf="myForm.controls.pass.touched" class="invalid-feedback">
+            <div *ngIf="myForm.controls.pass.errors?.required">This field is required</div>
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<!-- <table class="table table-responsive">
+    <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Password</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let dt of myForm">
+        <td>{{dt.uname}}</td>
+        <td>{{dt.eml}}</td>
+        <td>{{dt.add}}</td>
+        <td>{{dt.pass}}</td>
+        <td><button class="btn btn-danger" (click)="onDeleteData(dt)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="onUpdateData(dt)">Update</button></td>
+    </tr>
+</table> -->

@@ -1,0 +1,24 @@
+<p>service works!</p>
+<!-- {{empdata1 | json}} -->
+
+<!-- {{empdata2 | json}} -->
+
+<!-- {{data | json}} -->
+
+<table class="table table-responsive">
+    <tr>
+        <th>Name</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Address</th>
+    </tr>
+
+    <tr *ngFor="let dt of data">
+        <td>{{dt.name}}</td>
+        <td>{{dt.username}}</td>
+        <td>{{dt.email}}</td>
+        <td>{{dt.address}}{{dt.address.geo.lat}}
+            
+        </td>
+    </tr>
+</table>
